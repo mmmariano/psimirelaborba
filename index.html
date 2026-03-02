@@ -565,6 +565,76 @@ footer::before {
   .barr-wrap { display: none; }
   .photo-frame { width: 75%; }
 }
+/* ── FOOTER MELHORADO ── */
+footer { 
+  background: var(--dark); 
+  padding: 6rem 5vw 3rem; 
+  position: relative; 
+  overflow: hidden; 
+}
+
+footer::before {
+  content: 'M'; position: absolute; bottom: -5rem; right: 2vw;
+  font-family: var(--fd); font-size: 45vh; font-style: italic;
+  color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+}
+
+.ft-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+.ft-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 3rem;
+}
+
+.ft-name { 
+  font-family: var(--fd); font-size: clamp(2rem, 4vw, 3.5rem); 
+  font-style: italic; color: #ffffff; line-height: 1.1; 
+}
+
+.ft-tag { 
+  font-family: var(--fb); font-size: 0.95rem; font-style: italic; 
+  color: #ffffff; max-width: 300px; text-align: right; line-height: 1.6;
+  opacity: 0.9;
+}
+
+.ft-mid {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 4rem;
+}
+
+.ft-social { display: flex; gap: 1.5rem; }
+.ft-social a { color: #ffffff; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: opacity 0.3s; }
+.ft-social a:hover { opacity: 0.6; }
+
+.ft-bot { 
+  display: flex; align-items: center; justify-content: space-between; 
+  padding-top: 2rem;
+}
+
+.ft-copy, .ft-dev { 
+  font-size: 0.6rem; letter-spacing: 0.12em; color: #ffffff; 
+  text-transform: uppercase; opacity: 0.7;
+}
+
+.ft-dev a { color: #ffffff; text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.3); transition: border 0.3s; }
+.ft-dev a:hover { border-bottom-color: var(--blush); }
+
+.ft-nav { display: flex; gap: 2.5rem; }
+.ft-nav a { 
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; 
+  color: #ffffff; text-decoration: none; transition: 0.3s; 
+}
+.ft-nav a:hover { color: var(--blush); }
+
+/* Ajuste Responsivo */
+@media(max-width:960px){
+  .ft-top { flex-direction: column; gap: 2rem; }
+  .ft-tag { text-align: left; }
+  .ft-mid { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .ft-bot { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
+  .ft-nav { flex-direction: column; gap: 1rem; }
+}
 </style>
 </head>
 <body>
@@ -825,17 +895,30 @@ footer::before {
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-top">
-    <h2 class="ft-name">Dra. Mirela Borba</h2>
-    <p class="ft-tag">Psicóloga · PhD em Saúde · Professora Universitária · Escritora · Forbes 2025</p>
-  </div>
-  <div class="ft-bot">
-    <span class="ft-copy">© 2025 Dra. Mirela Borba — Todos os direitos reservados</span>
-    <nav class="ft-nav">
-      <a href="#sobre">Sobre</a>
-      <a href="#livros">Livros</a>
-      <a href="#atendimento">Atendimento</a>
-    </nav>
+  <div class="ft-container">
+    <div class="ft-top">
+      <h2 class="ft-name">Dra. Mirela Borba</h2>
+      <p class="ft-tag">Psicóloga · PhD em Saúde · Professora Universitária · Escritora · Forbes 2025</p>
+    </div>
+
+    <div class="ft-mid">
+      <div class="ft-social">
+        <a href="https://wa.me/558199048087" target="_blank">WhatsApp</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">LinkedIn</a>
+      </div>
+      <nav class="ft-nav">
+        <a href="#sobre">Sobre</a>
+        <a href="#livros">Livros</a>
+        <a href="#atendimento">Atendimento</a>
+        <a href="#inicio">Início</a>
+      </nav>
+    </div>
+
+    <div class="ft-bot">
+      <span class="ft-copy">© 2025 Dra. Mirela Borba — Todos os direitos reservados</span>
+      <span class="ft-dev">Desenvolvido por <a href="https://www.trywebdesign.com.br/" target="_blank">TryWebDesign</a></span>
+    </div>
   </div>
 </footer>
 
