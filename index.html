@@ -109,6 +109,8 @@ nav.scrolled {
   transition: color .35s; white-space: nowrap; flex-shrink: 0; z-index: 2;
 }
 nav.scrolled .nav-logo { color: var(--dark); }
+
+/* ── NAV-MID: centrado via flex trick, só desktop ── */
 .nav-mid {
   display: flex; gap: 2.6rem;
   position: absolute; left: 50%; transform: translateX(-50%);
@@ -127,6 +129,7 @@ nav.scrolled .nav-logo { color: var(--dark); }
 .nav-mid a:hover::after { transform: scaleX(1); transform-origin: left; }
 nav.scrolled .nav-mid a { color: var(--mid); }
 nav.scrolled .nav-mid a:hover { color: var(--dark); }
+
 .nav-btn {
   font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
   border: 1px solid rgba(255,255,255,.38); padding: .46rem 1.25rem;
@@ -136,8 +139,11 @@ nav.scrolled .nav-mid a:hover { color: var(--dark); }
 .nav-btn:hover { background: var(--blush); border-color: var(--blush); color: #fff; }
 nav.scrolled .nav-btn { border-color: rgba(145,147,126,.38); color: var(--sage); }
 nav.scrolled .nav-btn:hover { background: var(--blush); border-color: var(--blush); color: #fff; }
+
+/* Hamburger — escondido no desktop, visível no mobile */
 .nav-ham {
-  display: none; flex-direction: column; justify-content: center; gap: 5px;
+  display: none;
+  flex-direction: column; justify-content: center; gap: 5px;
   width: 36px; height: 36px; background: none; border: none;
   cursor: pointer; padding: 4px; flex-shrink: 0; z-index: 2;
 }
@@ -151,6 +157,8 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 .nav-ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Drawer mobile */
 .nav-drawer {
   position: fixed; inset: 0; z-index: 800;
   background: rgba(22,20,18,.97); backdrop-filter: blur(24px);
@@ -550,34 +558,41 @@ footer::before {
 }
 #whats-btn:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
 
-/* ── RESPONSIVE ── */
-@media(max-width:960px){
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media (max-width: 960px) {
   body { cursor: auto; }
-  #cdot,#cring { display: none; }
+  #cdot, #cring { display: none; }
+
   nav { padding: 0 5vw; }
 
-  /* CORREÇÃO: esconder menu e botão de contato no mobile */
+  /* Ocultar menu central e botão de contato no desktop nav */
   .nav-mid { display: none !important; }
   .nav-btn  { display: none !important; }
 
-  /* Mostrar hambúrguer */
+  /* Exibir hambúrguer */
   .nav-ham { display: flex; }
 
+  /* Hero em coluna única */
   .hero { grid-template-columns: 1fr; border-radius: 0 0 50px 50px; }
   .hero-l { min-height: 60vh; padding: 8rem 6vw 5rem 7vw; border-radius: 0 0 60px 0; }
   .hero-r { min-height: 85vw; padding: 4vh 5vw 3vh; border-radius: 0 0 0 60px; }
   .photo-frame { width: 80%; max-width: 320px; margin-top: 3vh; }
   .chip { top: 1.5rem; right: 1.5rem; width: 76px; height: 76px; }
+
   .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   #destaque { grid-template-columns: 1fr; }
   .atend-grid { grid-template-columns: 1fr; gap: 3rem; }
+
   .ft-top { flex-direction: column; gap: 2rem; }
   .ft-tag { text-align: left; }
   .ft-mid { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
   .ft-bot { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
   .ft-nav { flex-direction: column; gap: 1rem; }
 }
-@media(max-width:600px){
+
+@media (max-width: 600px) {
   .sec { padding: 5rem 5vw; }
   .bcard { grid-template-columns: 38px 1fr; gap: 1.2rem; }
   .barr-wrap { display: none; }
@@ -864,13 +879,14 @@ window.addEventListener('load', () => {
 });
 
 // Cursor
-const cdot = document.getElementById('cdot');
+const cdot  = document.getElementById('cdot');
 const cring = document.getElementById('cring');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
+let mx=0, my=0, rx=0, ry=0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
 (function loop(){
-  rx += (mx-rx)*.13; ry += (my-ry)*.13;
-  cdot.style.cssText = `left:${mx}px;top:${my}px`;
+  rx += (mx - rx) * .13;
+  ry += (my - ry) * .13;
+  cdot.style.cssText  = `left:${mx}px;top:${my}px`;
   cring.style.cssText = `left:${rx}px;top:${ry}px`;
   requestAnimationFrame(loop);
 })();
@@ -882,20 +898,29 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 // Hamburger
 const ham    = document.getElementById('nav-ham');
 const drawer = document.getElementById('nav-drawer');
-function closeDrawer(){
+
+function closeDrawer() {
   ham.classList.remove('open');
   drawer.classList.remove('open');
   document.body.style.overflow = '';
 }
+
 ham.addEventListener('click', () => {
   const open = ham.classList.toggle('open');
   drawer.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
-// Reveal
+// Fechar drawer ao clicar fora (no overlay)
+drawer.addEventListener('click', e => {
+  if (e.target === drawer) closeDrawer();
+});
+
+// Reveal on scroll
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+  });
 }, { threshold: 0.08 });
 document.querySelectorAll('.rv,.rl,.rr').forEach(el => obs.observe(el));
 </script>
