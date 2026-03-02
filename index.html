@@ -6,20 +6,27 @@
 <title>Dra. Mirela Borba — Psicóloga · PhD · Escritora</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=EB+Garamond:ital,wght@0,400;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+<!-- SEO Básico -->
 <meta name="description" content="Dra. Mirela Borba — Psicóloga, PhD em Saúde e Escritora. Destaque Forbes UK 2025. Especialista em saúde mental, desenvolvimento infantil e tecnologias digitais.">
 <meta name="keywords" content="Psicóloga, Dra. Mirela Borba, PhD em Saúde, Psicologia Clínica, Desenvolvimento Infantil, Tecnologia Digital na Infância, Escritora, Forbes 2025, Saúde Mental">
 <meta name="author" content="Dra. Mirela Borba">
 <link rel="canonical" href="https://psimirelaborba.com.br">
+
+<!-- Open Graph / Facebook (Como o site aparece ao compartilhar no WhatsApp/Redes Sociais) -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://psimirelaborba.com.br">
 <meta property="og:title" content="Dra. Mirela Borba | Psicóloga, PhD e Escritora">
 <meta property="og:description" content="Ciência, cuidado e humanidade. Conheça a trajetória e as obras da Dra. Mirela Borba, destaque Forbes UK 2025.">
 <meta property="og:image" content="https://i.ibb.co/ZpcHX3mF/perfil.jpg">
+
+<!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="https://psimirelaborba.com.br">
 <meta property="twitter:title" content="Dra. Mirela Borba | Psicóloga, PhD e Escritora">
 <meta property="twitter:description" content="Destaque Forbes 2025 em Psicologia. Pesquisadora sobre o impacto das tecnologias no desenvolvimento humano.">
 <meta property="twitter:image" content="https://i.ibb.co/ZpcHX3mF/perfil.jpg">
+
+<!-- Robots -->
 <meta name="robots" content="index, follow">
 <meta name="rating" content="general">
 
@@ -109,8 +116,6 @@ nav.scrolled {
   transition: color .35s; white-space: nowrap; flex-shrink: 0; z-index: 2;
 }
 nav.scrolled .nav-logo { color: var(--dark); }
-
-/* ── NAV-MID: centrado via flex trick, só desktop ── */
 .nav-mid {
   display: flex; gap: 2.6rem;
   position: absolute; left: 50%; transform: translateX(-50%);
@@ -129,7 +134,6 @@ nav.scrolled .nav-logo { color: var(--dark); }
 .nav-mid a:hover::after { transform: scaleX(1); transform-origin: left; }
 nav.scrolled .nav-mid a { color: var(--mid); }
 nav.scrolled .nav-mid a:hover { color: var(--dark); }
-
 .nav-btn {
   font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
   border: 1px solid rgba(255,255,255,.38); padding: .46rem 1.25rem;
@@ -139,11 +143,8 @@ nav.scrolled .nav-mid a:hover { color: var(--dark); }
 .nav-btn:hover { background: var(--blush); border-color: var(--blush); color: #fff; }
 nav.scrolled .nav-btn { border-color: rgba(145,147,126,.38); color: var(--sage); }
 nav.scrolled .nav-btn:hover { background: var(--blush); border-color: var(--blush); color: #fff; }
-
-/* Hamburger — escondido no desktop, visível no mobile */
 .nav-ham {
-  display: none;
-  flex-direction: column; justify-content: center; gap: 5px;
+  display: none; flex-direction: column; justify-content: center; gap: 5px;
   width: 36px; height: 36px; background: none; border: none;
   cursor: pointer; padding: 4px; flex-shrink: 0; z-index: 2;
 }
@@ -157,26 +158,12 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 .nav-ham.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
 .nav-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
 .nav-ham.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-/* Drawer mobile */
 .nav-drawer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; /* Mudado de inset:0 para ser mais explícito */
-    z-index: 800;
-    background: rgba(22,18,16, 0.98); /* Um pouco mais opaco para legibilidade */
-    backdrop-filter: blur(15px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-    pointer-events: none;
+  position: fixed; inset: 0; z-index: 800;
+  background: rgba(22,20,18,.97); backdrop-filter: blur(24px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+  opacity: 0; visibility: hidden;
+  transition: opacity .4s ease, visibility .4s; pointer-events: none;
 }
 .nav-drawer.open { opacity: 1; visibility: visible; pointer-events: all; }
 .nav-drawer a {
@@ -204,6 +191,7 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   overflow: hidden;
 }
 
+/* ── Dark left panel ── */
 .hero-l {
   background: var(--dark);
   display: flex; flex-direction: column; justify-content: space-between;
@@ -261,6 +249,7 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   border: 1px solid rgba(145,147,126,.22); padding: .2rem .75rem; color: rgba(245,241,236,.28);
 }
 
+/* ── Cream right panel — photo fills it ── */
 .hero-r {
   background: var(--cream);
   display: flex; flex-direction: column;
@@ -282,6 +271,7 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   pointer-events: none;
 }
 
+/* Forbes chip */
 .chip {
   position: absolute; top: 6rem; right: 2rem; z-index: 5;
   width: 92px; height: 92px; border-radius: 50%;
@@ -294,14 +284,19 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 .chip-name { font-family: var(--fd); font-size: 1rem; color: #fff; font-style: italic; line-height: 1; }
 .chip-year { font-size: .46rem; color: rgba(255,255,255,.32); letter-spacing: .1em; }
 
+/* ── Photo frame — huge, fills almost the entire right panel ── */
 .photo-frame {
   position: relative; z-index: 3;
   opacity: 0; animation: fadeUp 1s 2s ease both;
+  /* nearly full width & height of panel */
   width: 92%;
   max-width: 560px;
+  /* push up so photo starts near top */
   margin-top: 5vh;
   flex-shrink: 0;
 }
+
+/* Outer decorative frame line */
 .photo-frame::before {
   content: '';
   position: absolute;
@@ -310,6 +305,7 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   border-radius: 68px;
   z-index: -1;
 }
+/* Second deeper frame line */
 .photo-frame::after {
   content: '';
   position: absolute;
@@ -318,6 +314,8 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   border-radius: 82px;
   z-index: -2;
 }
+
+/* Photo — very large, very rounded */
 .photo-frame img {
   width: 100%;
   aspect-ratio: 3 / 4;
@@ -330,11 +328,15 @@ nav.scrolled .nav-ham span { background: var(--dark); }
     0 50px 100px rgba(145,147,126,.28),
     0 16px 40px rgba(0,0,0,.13);
 }
+
+/* Gradient accent bar bottom of photo */
 .photo-bar {
   position: absolute; bottom: 0; left: 0; right: 0; height: 5px;
   background: linear-gradient(90deg, var(--sage), var(--blush));
   border-radius: 0 0 60px 60px;
 }
+
+/* Caption */
 .photo-caption {
   margin-top: 1rem; margin-bottom: .2rem;
   text-align: center;
@@ -377,14 +379,6 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   display: grid; grid-template-columns: 240px 1fr; gap: 6rem;
   margin-top: 4.5rem; align-items: start;
 }
-@media (max-width: 960px) {
-    #cdot, #cring {
-        display: none !important;
-    }
-    body {
-        cursor: auto !important;
-    }
-}
 .sobre-nums { display: flex; flex-direction: column; }
 .sn { padding: 1.6rem 0; border-top: 1px solid rgba(145,147,126,.17); }
 .sn:last-child { border-bottom: 1px solid rgba(145,147,126,.17); }
@@ -418,14 +412,13 @@ nav.scrolled .nav-ham span { background: var(--dark); }
   padding: 2.2rem 0;
   border-bottom: 1px solid rgba(145,147,126,.15);
   text-decoration: none; color: inherit;
-  position: relative;
+  position: relative; overflow: hidden;
   transition: padding-left .35s cubic-bezier(.16,1,.3,1);
 }
 .bcard::before {
   content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 0;
   background: linear-gradient(90deg, rgba(145,147,126,.06), transparent);
   transition: width .4s cubic-bezier(.16,1,.3,1);
-  pointer-events: none;
 }
 .bcard:hover { padding-left: 1.2rem; }
 .bcard:hover::before { width: 100%; }
@@ -516,54 +509,23 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 .svc p  { font-family: var(--fb); font-size: .95rem; line-height: 1.7; color: var(--mid); }
 
 /* ── FOOTER ── */
-footer { 
-  background: var(--dark); 
-  padding: 6rem 5vw 3rem; 
-  position: relative; 
-  overflow: hidden; 
-}
+footer { background: var(--dark); padding: 5rem 5vw 2.5rem; position: relative; overflow: hidden; }
 footer::before {
-  content: 'M'; position: absolute; bottom: -5rem; right: 2vw;
-  font-family: var(--fd); font-size: 45vh; font-style: italic;
-  color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+  content: 'M'; position: absolute; bottom: -7rem; right: 1vw;
+  font-family: var(--fd); font-size: 42vh; font-style: italic;
+  color: rgba(255,255,255,.018); line-height: 1; pointer-events: none;
 }
-.ft-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
 .ft-top {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1);
-  margin-bottom: 3rem;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,.06);
+  margin-bottom: 2rem; position: relative; z-index: 1;
 }
-.ft-name { 
-  font-family: var(--fd); font-size: clamp(2rem, 4vw, 3.5rem); 
-  font-style: italic; color: #ffffff; line-height: 1.1; 
-}
-.ft-tag { 
-  font-family: var(--fb); font-size: 0.95rem; font-style: italic; 
-  color: #ffffff; max-width: 300px; text-align: right; line-height: 1.6;
-  opacity: 0.9;
-}
-.ft-mid {
-  display: flex; justify-content: space-between; align-items: center;
-  margin-bottom: 4rem;
-}
-.ft-social { display: flex; gap: 1.5rem; }
-.ft-social a { color: #ffffff; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: opacity 0.3s; }
-.ft-social a:hover { opacity: 0.6; }
-.ft-bot { 
-  display: flex; align-items: center; justify-content: space-between; 
-  padding-top: 2rem;
-}
-.ft-copy, .ft-dev { 
-  font-size: 0.6rem; letter-spacing: 0.12em; color: #ffffff; 
-  text-transform: uppercase; opacity: 0.7;
-}
-.ft-dev a { color: #ffffff; text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.3); transition: border 0.3s; }
-.ft-dev a:hover { border-bottom-color: var(--blush); }
-.ft-nav { display: flex; gap: 2.5rem; }
-.ft-nav a { 
-  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; 
-  color: #ffffff; text-decoration: none; transition: 0.3s; 
-}
+.ft-name { font-family: var(--fd); font-size: clamp(2.2rem,4.5vw,3.8rem); font-style: italic; color: rgba(255,255,255,.52); line-height: 1; }
+.ft-tag  { font-family: var(--fb); font-size: .86rem; font-style: italic; color: rgba(255,255,255,.22); max-width: 240px; text-align: right; line-height: 1.65; }
+.ft-bot  { display: flex; align-items: center; justify-content: space-between; position: relative; z-index: 1; }
+.ft-copy { font-size: .56rem; letter-spacing: .12em; color: rgba(255,255,255,.18); text-transform: uppercase; }
+.ft-nav  { display: flex; gap: 2rem; }
+.ft-nav a { font-size: .56rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.2); text-decoration: none; transition: color .3s; }
 .ft-nav a:hover { color: var(--blush); }
 
 /* ── WHATSAPP ── */
@@ -578,77 +540,100 @@ footer::before {
 }
 #whats-btn:hover { transform: scale(1.1) translateY(-3px); box-shadow: 0 8px 28px rgba(37,211,102,.5); }
 
-/* ══════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════ */
-@media (max-width: 960px) {
+/* ── RESPONSIVE ── */
+@media(max-width:960px){
   body { cursor: auto; }
-  #cdot, #cring { display: none; }
-
+  #cdot,#cring { display: none; }
   nav { padding: 0 5vw; }
-
-  /* Ocultar menu central e botão de contato no desktop nav */
-  .nav-mid { display: none !important; }
-  .nav-btn  { display: none !important; }
-
-  /* Exibir hambúrguer */
+  .nav-mid,.nav-btn { display: none; }
   .nav-ham { display: flex; }
-
-  /* Hero em coluna única */
   .hero { grid-template-columns: 1fr; border-radius: 0 0 50px 50px; }
   .hero-l { min-height: 60vh; padding: 8rem 6vw 5rem 7vw; border-radius: 0 0 60px 0; }
   .hero-r { min-height: 85vw; padding: 4vh 5vw 3vh; border-radius: 0 0 0 60px; }
   .photo-frame { width: 80%; max-width: 320px; margin-top: 3vh; }
   .chip { top: 1.5rem; right: 1.5rem; width: 76px; height: 76px; }
-
   .sobre-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   #destaque { grid-template-columns: 1fr; }
   .atend-grid { grid-template-columns: 1fr; gap: 3rem; }
-
-  .ft-top { flex-direction: column; gap: 2rem; }
+  .ft-top { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .ft-tag { text-align: left; }
-  .ft-mid { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
-  .ft-bot { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
-  .ft-nav { flex-direction: column; gap: 1rem; }
+  .ft-bot { flex-direction: column; gap: 1rem; align-items: flex-start; }
 }
-
-@media (max-width: 600px) {
+@media(max-width:600px){
   .sec { padding: 5rem 5vw; }
   .bcard { grid-template-columns: 38px 1fr; gap: 1.2rem; }
   .barr-wrap { display: none; }
   .photo-frame { width: 75%; }
 }
-/* Correção Global de Transbordo */
-html, body {
-    max-width: 100%;
-    overflow-x: hidden;
-    position: relative;
+/* ── FOOTER MELHORADO ── */
+footer { 
+  background: var(--dark); 
+  padding: 6rem 5vw 3rem; 
+  position: relative; 
+  overflow: hidden; 
 }
 
-@media (max-width: 960px) {
-    /* Impede que as bordas decorativas da foto empurrem a tela para a direita */
-    .photo-frame::before {
-        right: -10px !important; 
-        bottom: -10px !important;
-    }
-    .photo-frame::after {
-        right: -18px !important;
-        bottom: -18px !important;
-    }
-    
-    /* Ajusta a logo para não ocupar espaço demais e empurrar o hambúrguer */
-    .nav-logo {
-        font-size: 1rem !important;
-        max-width: 70%;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
+footer::before {
+  content: 'M'; position: absolute; bottom: -5rem; right: 2vw;
+  font-family: var(--fd); font-size: 45vh; font-style: italic;
+  color: rgba(255,255,255,0.03); line-height: 1; pointer-events: none;
+}
 
-    /* Garante que o container da navegação não quebre */
-    nav {
-        padding: 0 4vw !important;
-        justify-content: space-between;
-    }
+.ft-container { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+
+.ft-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  padding-bottom: 4rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 3rem;
+}
+
+.ft-name { 
+  font-family: var(--fd); font-size: clamp(2rem, 4vw, 3.5rem); 
+  font-style: italic; color: #ffffff; line-height: 1.1; 
+}
+
+.ft-tag { 
+  font-family: var(--fb); font-size: 0.95rem; font-style: italic; 
+  color: #ffffff; max-width: 300px; text-align: right; line-height: 1.6;
+  opacity: 0.9;
+}
+
+.ft-mid {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 4rem;
+}
+
+.ft-social { display: flex; gap: 1.5rem; }
+.ft-social a { color: #ffffff; text-decoration: none; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; transition: opacity 0.3s; }
+.ft-social a:hover { opacity: 0.6; }
+
+.ft-bot { 
+  display: flex; align-items: center; justify-content: space-between; 
+  padding-top: 2rem;
+}
+
+.ft-copy, .ft-dev { 
+  font-size: 0.6rem; letter-spacing: 0.12em; color: #ffffff; 
+  text-transform: uppercase; opacity: 0.7;
+}
+
+.ft-dev a { color: #ffffff; text-decoration: none; font-weight: 500; border-bottom: 1px solid rgba(255,255,255,0.3); transition: border 0.3s; }
+.ft-dev a:hover { border-bottom-color: var(--blush); }
+
+.ft-nav { display: flex; gap: 2.5rem; }
+.ft-nav a { 
+  font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; 
+  color: #ffffff; text-decoration: none; transition: 0.3s; 
+}
+.ft-nav a:hover { color: var(--blush); }
+
+/* Ajuste Responsivo */
+@media(max-width:960px){
+  .ft-top { flex-direction: column; gap: 2rem; }
+  .ft-tag { text-align: left; }
+  .ft-mid { flex-direction: column; align-items: flex-start; gap: 2.5rem; }
+  .ft-bot { flex-direction: column-reverse; align-items: flex-start; gap: 2rem; }
+  .ft-nav { flex-direction: column; gap: 1rem; }
 }
 </style>
 </head>
@@ -691,9 +676,13 @@ html, body {
 
 <!-- ══ HERO ══ -->
 <section class="hero" id="inicio">
+
+  <!-- Left: dark text -->
   <div class="hero-l">
     <span class="hero-side-label">Psicologia · Saúde · Educação · 2025</span>
+
     <p class="hero-eyebrow">Psicóloga · PhD em Saúde · Forbes UK 2025</p>
+
     <div class="hero-main">
       <h1 class="hero-title">
         Dra. Mirela
@@ -703,6 +692,7 @@ html, body {
         Psicóloga, doutora em saúde e professora universitária — unindo ciência, cuidado e humanidade.
       </p>
     </div>
+
     <div class="hero-foot">
       <div class="scroll-hint">
         <span class="sline"></span>
@@ -716,18 +706,24 @@ html, body {
     </div>
   </div>
 
+  <!-- Right: photo -->
   <div class="hero-r">
+
+    <!-- Forbes chip — top right corner -->
     <div class="chip">
       <span class="chip-lbl">Destaque</span>
       <span class="chip-name">Forbes UK</span>
       <span class="chip-year">2025</span>
     </div>
+
+    <!-- Photo with decorative frame -->
     <div class="photo-frame">
       <img src="perfil.jpg" alt="Dra. Mirela Borba"
            onerror="this.style.background='linear-gradient(145deg,#9E9F8C,#C5A9A1)'">
       <div class="photo-bar"></div>
     </div>
     <p class="photo-caption">Dra. Mirela Borba — Psicóloga &amp; PhD</p>
+
   </div>
 </section>
 
@@ -754,6 +750,7 @@ html, body {
   <div class="wrap">
     <div class="sec-label rv"><span class="sec-dash"></span><span class="sec-cap">Quem sou eu</span></div>
     <h2 class="sec-h rv">Ciência que <em>transforma</em>,<br>escuta que <em>acolhe</em></h2>
+
     <div class="sobre-grid">
       <div class="rl">
         <div class="sobre-nums">
@@ -762,6 +759,7 @@ html, body {
           <div class="sn"><div class="sn-val">Forbes UK</div><div class="sn-lbl">Destaque Psicologia · 2025</div></div>
         </div>
       </div>
+
       <div class="rr">
         <p class="sobre-lead">
           Sou psicóloga, doutora em saúde e professora universitária. Dedico minha trajetória a unir o rigor da pesquisa científica com a escuta sensível que o cuidado humano exige.
@@ -783,6 +781,7 @@ html, body {
     <div class="sec-label rv"><span class="sec-dash"></span><span class="sec-cap">Produção autoral</span></div>
     <h2 class="sec-h rv">Livros <em>publicados</em></h2>
     <p class="books-intro rv">Obras que integram ciência, humanidade e a complexidade do desenvolvimento humano na era digital.</p>
+
     <div class="books-grid">
       <a class="bcard rv" style="transition-delay:.04s"
          href="https://loja.editoradialetica.com/humanidades/a-oferta-de-tecnologias-digitais-para-criancas-de-12-a-18-meses-motivacoes-e-experiencias"
@@ -794,6 +793,7 @@ html, body {
         </div>
         <div class="barr-wrap">→</div>
       </a>
+
       <a class="bcard rv" style="transition-delay:.09s"
          href="https://loja.editoradialetica.com/humanidades/estudos-atuais-em-psicologia-e-sociedade-volume-6"
          target="_blank" rel="noopener">
@@ -804,6 +804,7 @@ html, body {
         </div>
         <div class="barr-wrap">→</div>
       </a>
+
       <a class="bcard rv" style="transition-delay:.14s"
          href="https://loja.editoradialetica.com/humanidades/discussoes-interdisciplinares-em-ciencias-humanas-e-sociais-volume-2"
          target="_blank" rel="noopener">
@@ -814,6 +815,7 @@ html, body {
         </div>
         <div class="barr-wrap">→</div>
       </a>
+
       <a class="bcard rv" style="transition-delay:.19s"
          href="https://www.amazon.com.br/brincar-tecnologia-digital-primeira-infância/dp/6525223253"
          target="_blank" rel="noopener">
@@ -849,6 +851,7 @@ html, body {
   <div class="wrap">
     <div class="sec-label rv"><span class="sec-dash"></span><span class="sec-cap">Atendimento</span></div>
     <h2 class="sec-h rv">Um espaço <em>para você</em></h2>
+
     <div class="atend-grid">
       <div class="rl">
         <p class="atend-p">
@@ -862,6 +865,7 @@ html, body {
           <span class="abtn-arr">→</span>
         </a>
       </div>
+
       <div class="svcs rr">
         <div class="svc">
           <span class="svc-i">i</span>
@@ -896,6 +900,7 @@ html, body {
       <h2 class="ft-name">Dra. Mirela Borba</h2>
       <p class="ft-tag">Psicóloga · PhD em Saúde · Professora Universitária · Escritora · Forbes 2025</p>
     </div>
+
     <div class="ft-mid">
       <div class="ft-social">
         <a href="https://wa.me/558199048087" target="_blank">WhatsApp</a>
@@ -909,6 +914,7 @@ html, body {
         <a href="#inicio">Início</a>
       </nav>
     </div>
+
     <div class="ft-bot">
       <span class="ft-copy">© 2025 Dra. Mirela Borba — Todos os direitos reservados</span>
       <span class="ft-dev">Desenvolvido por <a href="https://www.trywebdesign.com.br/" target="_blank">TryWebDesign</a></span>
@@ -931,14 +937,13 @@ window.addEventListener('load', () => {
 });
 
 // Cursor
-const cdot  = document.getElementById('cdot');
+const cdot = document.getElementById('cdot');
 const cring = document.getElementById('cring');
-let mx=0, my=0, rx=0, ry=0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; });
 (function loop(){
-  rx += (mx - rx) * .13;
-  ry += (my - ry) * .13;
-  cdot.style.cssText  = `left:${mx}px;top:${my}px`;
+  rx += (mx-rx)*.13; ry += (my-ry)*.13;
+  cdot.style.cssText = `left:${mx}px;top:${my}px`;
   cring.style.cssText = `left:${rx}px;top:${ry}px`;
   requestAnimationFrame(loop);
 })();
@@ -950,29 +955,20 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY
 // Hamburger
 const ham    = document.getElementById('nav-ham');
 const drawer = document.getElementById('nav-drawer');
-
-function closeDrawer() {
+function closeDrawer(){
   ham.classList.remove('open');
   drawer.classList.remove('open');
   document.body.style.overflow = '';
 }
-
 ham.addEventListener('click', () => {
   const open = ham.classList.toggle('open');
   drawer.classList.toggle('open', open);
   document.body.style.overflow = open ? 'hidden' : '';
 });
 
-// Fechar drawer ao clicar fora (no overlay)
-drawer.addEventListener('click', e => {
-  if (e.target === drawer) closeDrawer();
-});
-
-// Reveal on scroll
+// Reveal
 const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
-  });
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
 }, { threshold: 0.08 });
 document.querySelectorAll('.rv,.rl,.rr').forEach(el => obs.observe(el));
 </script>
