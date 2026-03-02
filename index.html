@@ -767,6 +767,517 @@ footer::before {
   .hero-title { font-size: 2.2rem !important; }
   .hero-eyebrow { font-size: 0.5rem; }
 }
+@media (max-width: 960px) {
+  nav .nav-mid {
+    display: none !important;
+  }
+
+  nav.scrolled .nav-mid {
+    display: none !important;
+  }
+}
+/* ══════════════════════════════════
+   AJUSTE DEFINITIVO MOBILE
+══════════════════════════════════ */
+@media (max-width: 960px) {
+  body { cursor: auto; }
+  #cdot, #cring { display: none !important; }
+
+  /* Bloqueia o menu do meio e o botão em qualquer estado (normal ou scrolled) */
+  nav .nav-mid, 
+  nav.scrolled .nav-mid,
+  nav .nav-btn,
+  nav.scrolled .nav-btn { 
+    display: none !important; 
+  }
+  
+  /* Garante que o hambúrguer sempre apareça no mobile */
+  nav .nav-ham,
+  nav.scrolled .nav-ham { 
+    display: flex !important; 
+  }
+
+  /* Esconde a frase vertical */
+  .hero-side-label { 
+    display: none !important; 
+  }
+
+  /* Ajustes de layout para evitar quebras no scroll */
+  .hero { 
+    grid-template-columns: 1fr !important; 
+    border-radius: 0 0 40px 40px; 
+    overflow: hidden;
+  }
+  
+  .hero-l { 
+    padding: 6rem 6vw 4rem 7vw; 
+    border-radius: 0 0 40px 0; 
+  }
+
+  .hero-r { 
+    min-height: 400px; 
+    padding: 2rem 5vw; 
+    border-radius: 0 0 0 40px; 
+  }
+
+  .photo-frame { width: 85%; max-width: 300px; }
+
+  /* Ajuste das seções para não vazarem lateralmente */
+  .sobre-grid, .atend-grid, #destaque { 
+    grid-template-columns: 1fr !important; 
+  }
+}
+/* ══════════════════════════════════
+   SOLUÇÃO DEFINITIVA PARA MOBILE
+══════════════════════════════════ */
+@media (max-width: 960px) {
+  /* 1. Reset de Cursor e Elementos Visuais */
+  body { cursor: auto !important; }
+  #cdot, #cring { display: none !important; }
+
+  /* 2. TRAVA DO MENU (Impede que apareça ao rolar) */
+  /* Esconde os links centrais e o botão em qualquer estado do nav */
+  nav .nav-mid, 
+  nav.scrolled .nav-mid,
+  nav .nav-btn,
+  nav.scrolled .nav-btn {
+    display: none !important; 
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Garante que o Hambúrguer seja o único controle visível */
+  nav .nav-ham,
+  nav.scrolled .nav-ham {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* 3. REMOVE A FRASE VERTICAL */
+  .hero-side-label { 
+    display: none !important; 
+  }
+
+  /* 4. AJUSTES DE ESTRUTURA (Evita quebras no scroll) */
+  .hero { 
+    grid-template-columns: 1fr !important; 
+    border-radius: 0 0 40px 40px !important;
+    display: block !important; /* Muda de grid para block para evitar bugs de altura */
+  }
+
+  .hero-l { 
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 6rem 8vw 4rem !important;
+    border-radius: 0 0 40px 0 !important;
+    overflow: hidden !important;
+  }
+
+  .hero-r { 
+    width: 100% !important;
+    min-height: auto !important;
+    padding: 2rem 5vw 4rem !important;
+    border-radius: 0 !important;
+  }
+
+  .photo-frame { 
+    width: 80% !important; 
+    max-width: 280px !important; 
+    margin: 0 auto !important;
+  }
+
+  .hero-title {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 5. FIX PARA SEÇÕES QUE VAZAM LADOS */
+  .sobre-grid, .atend-grid, #destaque { 
+    grid-template-columns: 1fr !important; 
+    display: block !important;
+  }
+  
+  .sn { padding: 1rem 0 !important; }
+  .dest-l, .dest-r { width: 100% !important; padding: 4rem 8vw !important; }
+}
+/* ── NAV-MID (Links do meio) ── */
+.nav-mid {
+  display: none !important; /* ESCONDIDO POR PADRÃO EM TODO LUGAR */
+  gap: 2.6rem;
+  position: absolute; left: 50%; transform: translateX(-50%);
+}
+
+/* ── NAV-BTN (Botão Contato) ── */
+.nav-btn {
+  display: none !important; /* ESCONDIDO POR PADRÃO EM TODO LUGAR */
+  font-size: .58rem; letter-spacing: .18em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,.38); padding: .46rem 1.25rem;
+  color: rgba(255,255,255,.92); text-decoration: none;
+}
+
+/* ── SÓ APARECE EM DESKTOP (Telas maiores que 960px) ── */
+@media (min-width: 961px) {
+  .nav-mid { 
+    display: flex !important; /* MOSTRA NO PC */
+  }
+  .nav-btn { 
+    display: inline-block !important; /* MOSTRA NO PC */
+  }
+  .nav-ham { 
+    display: none !important; /* ESCONDE HAMBURGUER NO PC */
+  }
+  .hero-side-label {
+    display: block !important;
+  }
+}
+@media (max-width: 960px) {
+  body { 
+    overflow-x: hidden !important; 
+    cursor: auto !important; 
+  }
+  #cdot, #cring { display: none !important; }
+
+  /* Força o desaparecimento de qualquer bug no topo durante o scroll */
+  nav .nav-mid, 
+  nav .nav-btn,
+  nav.scrolled .nav-mid,
+  nav.scrolled .nav-btn {
+    display: none !important;
+  }
+
+  /* Garante o hambúrguer visível */
+  nav .nav-ham,
+  nav.scrolled .nav-ham {
+    display: flex !important;
+  }
+
+  /* Mata a frase vertical que quebra o layout */
+  .hero-side-label { 
+    display: none !important; 
+  }
+
+  /* Ajustes do Hero para Mobile */
+  .hero { 
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    border-radius: 0 0 40px 40px !important;
+    overflow: hidden !important;
+  }
+
+  .hero-l { 
+    width: 100% !important;
+    padding: 7rem 7vw 4rem !important;
+    border-radius: 0 0 40px 0 !important;
+  }
+
+  .hero-r { 
+    width: 100% !important;
+    padding: 2rem 5vw 4rem !important;
+    border-radius: 0 !important;
+  }
+
+  .photo-frame {
+    width: 80% !important;
+    max-width: 300px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-title {
+    font-size: 2.8rem !important;
+  }
+}
+/* ══════════════════════════════════
+   RESPONSIVE — Ajuste Final e Limpo
+══════════════════════════════════ */
+
+/* 1. REGRAS GERAIS PARA MOBILE (TELAS ATÉ 960px) */
+@media (max-width: 960px) {
+  body { cursor: auto !important; overflow-x: hidden; }
+  #cdot, #cring { display: none !important; }
+
+  /* MATA O MENU DUPLICADO NO SCROLL */
+  /* Isso garante que nem o menu nem o botão apareçam ao rolar */
+  nav .nav-mid, 
+  nav.scrolled .nav-mid,
+  nav .nav-btn,
+  nav.scrolled .nav-btn {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* GARANTE QUE O HAMBÚRGUER CONTINUE VISÍVEL */
+  nav .nav-ham,
+  nav.scrolled .nav-ham {
+    display: flex !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+
+  /* MATA A FRASE VERTICAL QUE QUEBRA O LAYOUT */
+  .hero-side-label { 
+    display: none !important; 
+  }
+
+  /* AJUSTES DE LAYOUT DO HERO */
+  .hero { 
+    grid-template-columns: 1fr !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    border-radius: 0 0 40px 40px !important;
+  }
+
+  .hero-l { 
+    min-height: auto !important;
+    padding: 6rem 8vw 4rem !important;
+    border-radius: 0 0 40px 0 !important;
+  }
+
+  .hero-title { font-size: 2.8rem !important; }
+  
+  .hero-r { 
+    min-height: 400px !important; 
+    padding: 2rem 5vw 4rem !important; 
+    border-radius: 0 0 0 40px !important;
+  }
+
+  .photo-frame { width: 85% !important; max-width: 300px !important; margin: 0 auto !important; }
+
+  /* AJUSTES DE SEÇÕES */
+  .sobre-grid, .atend-grid, #destaque { 
+    grid-template-columns: 1fr !important; 
+    gap: 3rem !important;
+  }
+
+  .ft-top, .ft-mid, .ft-bot { 
+    flex-direction: column !important; 
+    align-items: flex-start !important; 
+    gap: 2rem; 
+  }
+}
+
+/* 2. AJUSTE PARA TELAS PEQUENAS (CELULARES) */
+@media (max-width: 600px) {
+  .sec { padding: 4rem 6vw !important; }
+  .bcard { grid-template-columns: 40px 1fr !important; gap: 1rem !important; }
+  .barr-wrap { display: none !important; }
+}
+/* ══════════════════════════════════
+   SOLUÇÃO FINAL E LIMPA (MOBILE)
+══════════════════════════════════ */
+
+/* 1. RESET PARA TODOS OS DISPOSITIVOS MÓVEIS */
+@media (max-width: 960px) {
+  body { 
+    overflow-x: hidden !important; 
+    cursor: auto !important; 
+  }
+  
+  #cdot, #cring { display: none !important; }
+
+  /* BLOQUEIO TOTAL DO MENU DESKTOP NO CELULAR */
+  /* Isso impede que "Atendimento", "Início" ou qualquer link apareça na barra do topo */
+  nav .nav-mid, 
+  nav.scrolled .nav-mid,
+  nav .nav-btn,
+  nav.scrolled .nav-btn {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* MANTER APENAS LOGO E HAMBURGUER */
+  nav .nav-ham,
+  nav.scrolled .nav-ham {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* MATAR A FRASE VERTICAL */
+  .hero-side-label { 
+    display: none !important; 
+  }
+
+  /* AJUSTES DO HERO (CONSTRUÇÃO EM COLUNA) */
+  .hero { 
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: 1fr !important;
+    min-height: auto !important;
+    border-radius: 0 0 40px 40px !important;
+  }
+
+  .hero-l { 
+    width: 100% !important;
+    padding: 7rem 8vw 4rem !important;
+    border-radius: 0 0 40px 0 !important;
+    min-height: auto !important;
+  }
+
+  .hero-r { 
+    width: 100% !important;
+    padding: 2rem 5vw 4rem !important;
+    border-radius: 0 0 0 40px !important;
+    min-height: 400px !important;
+  }
+
+  .photo-frame {
+    width: 85% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+
+  .hero-title {
+    font-size: 2.8rem !important;
+    line-height: 1.1 !important;
+  }
+
+  .hero-sub { max-width: 100% !important; }
+
+  /* AJUSTE DAS SEÇÕES PARA NÃO VAZAREM */
+  .sobre-grid, .atend-grid, #destaque { 
+    display: block !important;
+    width: 100% !important;
+  }
+
+  .dest-l, .dest-r {
+    width: 100% !important;
+    padding: 4rem 8vw !important;
+  }
+}
+
+/* 2. AJUSTES PARA TELAS PEQUENAS (IPHONE/ANDROID) */
+@media (max-width: 600px) {
+  .sec { padding: 4rem 6vw !important; }
+  .bcard { 
+    grid-template-columns: 40px 1fr !important; 
+    gap: 1rem !important; 
+    padding: 1.5rem 0 !important;
+  }
+  .barr-wrap { display: none !important; }
+  .sn-val { font-size: 2.2rem !important; }
+}
+/* ══════════════════════════════════
+   CORREÇÃO DEFINITIVA MOBILE
+══════════════════════════════════ */
+@media (max-width: 960px) {
+  /* 1. Remove cursor e frase vertical */
+  body { cursor: auto !important; overflow-x: hidden; }
+  #cdot, #cring, .hero-side-label { display: none !important; }
+
+  /* 2. Bloqueia menu e botão de aparecer no scroll */
+  nav .nav-mid, 
+  nav.scrolled .nav-mid,
+  nav .nav-btn,
+  nav.scrolled .nav-btn {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+
+  /* 3. Garante que só o hambúrguer apareça */
+  nav .nav-ham,
+  nav.scrolled .nav-ham {
+    display: flex !important;
+    visibility: visible !important;
+  }
+
+  /* 4. Ajustes de layout para não quebrar */
+  .hero { 
+    grid-template-columns: 1fr !important; 
+    border-radius: 0 0 40px 40px; 
+  }
+  .hero-l { 
+    min-height: auto !important; 
+    padding: 7rem 8vw 4rem !important; 
+    border-radius: 0 0 40px 0 !important; 
+  }
+  .hero-r { 
+    min-height: 400px !important; 
+    padding: 2rem 5vw 4rem !important; 
+    border-radius: 0 0 0 40px !important; 
+  }
+  .hero-title { font-size: 2.8rem !important; }
+  .photo-frame { width: 85% !important; max-width: 280px !important; margin: 0 auto !important; }
+  .sobre-grid, .atend-grid, #destaque { grid-template-columns: 1fr !important; gap: 3rem; }
+  .ft-top, .ft-mid { flex-direction: column !important; align-items: flex-start !important; }
+}
+
+@media (max-width: 600px) {
+  .sec { padding: 4rem 6vw !important; }
+  .bcard { grid-template-columns: 40px 1fr !important; gap: 1rem !important; }
+  .barr-wrap { display: none !important; }
+}
+/* ══════════════════════════════════
+   BLINDAGEM TOTAL MOBILE 
+══════════════════════════════════ */
+@media (max-width: 960px) {
+  /* Esconde a frase vertical e cursores */
+  .hero-side-label, #cdot, #cring { display: none !important; }
+  
+  /* ESCONDE TUDO O QUE NÃO É LOGO OU HAMBURGUER NA BARRA */
+  nav .nav-mid, nav .nav-btn, 
+  nav.scrolled .nav-mid, nav.scrolled .nav-btn { 
+    display: none !important; 
+    opacity: 0 !important; 
+    visibility: hidden !important; 
+    pointer-events: none !important;
+  }
+
+  /* Força o hambúrguer a aparecer */
+  .nav-ham { display: flex !important; }
+
+  /* Ajustes de layout para não quebrar */
+  .hero { grid-template-columns: 1fr !important; border-radius: 0 0 40px 40px !important; }
+  .hero-l { padding: 6rem 8vw 4rem !important; border-radius: 0 0 40px 0 !important; min-height: auto !important; }
+  .hero-r { padding: 2rem 5vw 4rem !important; border-radius: 0 0 0 40px !important; min-height: auto !important; }
+  .photo-frame { width: 85% !important; max-width: 280px !important; margin: 0 auto !important; }
+  .sobre-grid, .atend-grid, #destaque { grid-template-columns: 1fr !important; gap: 3rem !important; }
+}
+/* ══════════════════════════════════
+   MARRETADA FINAL - RESOLVE O BUG DO "NAV" DUPLICADO
+══════════════════════════════════ */
+
+/* Força o menu do rodapé a NUNCA flutuar */
+footer nav.ft-nav, 
+.ft-nav {
+    position: static !important;
+    display: flex !important;
+    flex-direction: row !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Garante que o menu do topo (Desktop) suma no mobile em qualquer situação */
+@media (max-width: 960px) {
+    /* Esconde o menu fantasma que aparece no scroll */
+    #nav .nav-mid, 
+    #nav .nav-btn,
+    nav.scrolled .nav-mid, 
+    nav.scrolled .nav-btn {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        pointer-events: none !important;
+    }
+
+    /* Esconde a frase vertical que empurra o site */
+    .hero-side-label {
+        display: none !important;
+    }
+    
+    /* Impede que o site balance para os lados */
+    body, html {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
+    }
+}
 </style>
 </head>
 <body>
@@ -1092,6 +1603,41 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll('.rv,.rl,.rr').forEach(el => obs.observe(el));
+</script>
+<script>
+// GAMBIARRA PARA FORÇAR O MENU A SUMIR NO CELULAR
+function fixMobileMenu() {
+  if (window.innerWidth <= 960) {
+    const navMid = document.querySelector('.nav-mid');
+    const navBtn = document.querySelector('.nav-btn');
+    const sideLabel = document.querySelector('.hero-side-label');
+    
+    if (navMid) navMid.style.setProperty('display', 'none', 'important');
+    if (navBtn) navBtn.style.setProperty('display', 'none', 'important');
+    if (sideLabel) sideLabel.style.setProperty('display', 'none', 'important');
+  }
+}
+
+// Executa ao carregar, ao rolar e ao redimensionar
+window.addEventListener('load', fixMobileMenu);
+window.addEventListener('scroll', fixMobileMenu);
+window.addEventListener('resize', fixMobileMenu);
+</script>
+<script>
+// Essa função vai caçar os links invasores e garantir que eles sumam no mobile
+function matarLinksFantasmas() {
+    if (window.innerWidth <= 960) {
+        // Seleciona os links do menu de cima que ficam "vazando"
+        const linksDesktop = document.querySelectorAll('#nav .nav-mid, #nav .nav-btn');
+        linksDesktop.forEach(el => {
+            el.style.display = 'none';
+        });
+    }
+}
+
+// Executa ao carregar e ao rolar
+window.addEventListener('load', matarLinksFantasmas);
+window.addEventListener('scroll', matarLinksFantasmas);
 </script>
 </body>
 </html>
