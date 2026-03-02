@@ -160,11 +160,23 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 
 /* Drawer mobile */
 .nav-drawer {
-  position: fixed; inset: 0; z-index: 800;
-  background: rgba(22,20,18,.97); backdrop-filter: blur(24px);
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
-  opacity: 0; visibility: hidden;
-  transition: opacity .4s ease, visibility .4s; pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; /* Mudado de inset:0 para ser mais explícito */
+    z-index: 800;
+    background: rgba(22,18,16, 0.98); /* Um pouco mais opaco para legibilidade */
+    backdrop-filter: blur(15px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    pointer-events: none;
 }
 .nav-drawer.open { opacity: 1; visibility: visible; pointer-events: all; }
 .nav-drawer a {
@@ -364,6 +376,14 @@ nav.scrolled .nav-ham span { background: var(--dark); }
 .sobre-grid {
   display: grid; grid-template-columns: 240px 1fr; gap: 6rem;
   margin-top: 4.5rem; align-items: start;
+}
+@media (max-width: 960px) {
+    #cdot, #cring {
+        display: none !important;
+    }
+    body {
+        cursor: auto !important;
+    }
 }
 .sobre-nums { display: flex; flex-direction: column; }
 .sn { padding: 1.6rem 0; border-top: 1px solid rgba(145,147,126,.17); }
@@ -597,6 +617,38 @@ footer::before {
   .bcard { grid-template-columns: 38px 1fr; gap: 1.2rem; }
   .barr-wrap { display: none; }
   .photo-frame { width: 75%; }
+}
+/* Correção Global de Transbordo */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    position: relative;
+}
+
+@media (max-width: 960px) {
+    /* Impede que as bordas decorativas da foto empurrem a tela para a direita */
+    .photo-frame::before {
+        right: -10px !important; 
+        bottom: -10px !important;
+    }
+    .photo-frame::after {
+        right: -18px !important;
+        bottom: -18px !important;
+    }
+    
+    /* Ajusta a logo para não ocupar espaço demais e empurrar o hambúrguer */
+    .nav-logo {
+        font-size: 1rem !important;
+        max-width: 70%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Garante que o container da navegação não quebre */
+    nav {
+        padding: 0 4vw !important;
+        justify-content: space-between;
+    }
 }
 </style>
 </head>
