@@ -1,0 +1,13 @@
+{
+  "name": "psimirelaborba",
+  "version": "1.0.0",
+  "description": "Dra. Mirela Borba website with Vercel Analytics",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 8000",
+    "build": "echo 'Static HTML - no build needed'"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.4.1"
+  }
+}
