@@ -1278,83 +1278,92 @@ footer nav.ft-nav,
         position: relative !important;
     }
 }
-  /* ── ESTILOS SEÇÃO INSTITUTO ── */
-#home-instituto { background: var(--cream); overflow: hidden; }
+  /* ── SEÇÃO INSTITUTO: DESIGN FOCO EM TEXTO E IMAGEM REAL ── */
+#home-instituto { 
+  background: var(--ivory); 
+  border-top: 1px solid rgba(145,147,126,0.1);
+  padding: 10rem 5vw; /* Mais espaço para respirar */
+}
 
 .inst-grid { 
   display: grid; 
-  grid-template-columns: 1fr 1.1fr; 
-  gap: 6rem; 
+  grid-template-columns: 1.2fr 1fr; 
+  gap: 5vw; 
   align-items: center; 
 }
 
-.inst-p { 
+/* Título muito maior e elegante */
+.inst-title { 
+  font-family: var(--fd); 
+  font-size: clamp(3rem, 6vw, 5rem); 
+  line-height: 1; 
+  color: var(--dark); 
+  margin-bottom: 2.5rem;
+}
+.inst-title em { font-style: italic; color: var(--blush); }
+
+/* Texto de descrição maior e com mais peso */
+.inst-description { 
   font-family: var(--fb); 
-  font-size: 1.1rem; 
-  line-height: 1.9; 
-  color: var(--mid); 
-  margin: 1.5rem 0 2rem; 
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem); 
+  line-height: 1.7; 
+  color: var(--char); 
+  margin-bottom: 3rem;
+  max-width: 580px;
 }
 
-.inst-image-container { position: relative; }
+/* Botão maior */
+.abtn-large {
+  display: inline-flex; align-items: center; gap: 1.5rem;
+  padding: 1.5rem 3rem; background: var(--dark); color: var(--cream);
+  text-decoration: none; font-size: 0.7rem; letter-spacing: 0.25em;
+  text-transform: uppercase; font-weight: 500; position: relative; 
+  overflow: hidden; transition: all 0.4s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+.abtn-large::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--sage), var(--blush));
+  transform: translateX(-101%); transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.abtn-large:hover::before { transform: translateX(0); }
+.abtn-large span, .abtn-arr { position: relative; z-index: 1; }
+.abtn-large:hover { transform: translateY(-5px); color: #fff; }
 
-.inst-img-frame {
+/* Container da imagem sem cortes */
+.inst-frame-new {
   position: relative;
-  z-index: 1;
-}
-
-.inst-img-frame::before {
-  content: '';
-  position: absolute;
-  top: 15px; left: 15px; right: -15px; bottom: -15px;
-  border: 1px solid var(--blush);
-  border-radius: 40px;
-  z-index: -1;
-}
-
-.inst-img-frame img {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
-  border-radius: 30px;
+}
+.inst-frame-new img {
+  width: 100%;
+  height: auto; /* Garante que a imagem não corte */
   display: block;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+  border-radius: 4px; /* Bordas mais retas para parecer um quadro/anúncio */
+  box-shadow: 0 30px 60px rgba(0,0,0,0.15);
+  transition: transform 0.5s ease;
 }
 
-.inst-link-img:hover img {
-  transform: scale(1.02);
-}
-
-.inst-img-bar {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 4px;
-  background: linear-gradient(90deg, var(--sage), var(--blush));
-  border-radius: 0 0 30px 30px;
-}
-
-.inst-badge {
+/* Efeito de borda flutuante atrás da imagem */
+.inst-border-effect {
   position: absolute;
-  bottom: -1rem;
-  right: 2rem;
-  background: var(--dark);
-  padding: 0.8rem 1.5rem;
-  z-index: 2;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  top: -20px; right: -20px; bottom: 20px; left: 20px;
+  border: 1px solid var(--blush);
+  z-index: -1;
+  pointer-events: none;
 }
 
-.ib-lbl {
-  font-size: 0.55rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--blush);
-  font-weight: 500;
+.inst-img-anchor:hover img {
+  transform: scale(1.03);
 }
 
-/* Responsivo para o Instituto */
+/* Responsivo */
 @media (max-width: 960px) {
-  .inst-grid { grid-template-columns: 1fr; gap: 4rem; }
-  .inst-img-frame img { aspect-ratio: 4 / 3; }
-  .inst-badge { right: 50%; transform: translateX(50%); bottom: -1.5rem; }
+  #home-instituto { padding: 6rem 5vw; }
+  .inst-grid { grid-template-columns: 1fr; text-align: center; }
+  .inst-description { margin-left: auto; margin-right: auto; }
+  .inst-border-effect { display: none; }
+  .inst-title { font-size: 3.5rem; }
 }
 </style>
 </head>
@@ -1380,6 +1389,7 @@ footer nav.ft-nav,
     <a href="#sobre">Sobre</a>
     <a href="#livros">Livros</a>
     <a href="#atendimento">Atendimento</a>
+    <a href="/instituto/">Instituto</a>
   </div>
   <a href="https://wa.me/558199048087" class="nav-btn">Contato</a>
   <button class="nav-ham" id="nav-ham" aria-label="Menu">
@@ -1593,38 +1603,38 @@ footer nav.ft-nav,
       </div>
     </div>
   </div>
-</section>
-<!-- ══ SEÇÃO INSTITUTO ══ -->
+</section><!-- ══ SEÇÃO INSTITUTO (DESIGN AMPLIADO) ══ -->
 <section class="sec" id="home-instituto">
   <div class="wrap">
     <div class="inst-grid">
+      
       <div class="inst-text rl">
         <div class="sec-label">
           <span class="sec-dash"></span>
-          <span class="sec-cap">Expandindo o Conhecimento</span>
+          <span class="sec-cap">Braço Educacional</span>
         </div>
-        <h2 class="sec-h">Instituto <em>Mirela Borba</em></h2>
-        <p class="inst-p">
-          Um espaço dedicado à formação de excelência, pesquisa científica e o aprimoramento da prática clínica. 
-          Conheça nosso braço educacional e explore cursos, workshops e materiais exclusivos para profissionais e estudantes.
+        <h2 class="inst-title">Instituto<br><em>Mirela Borba</em></h2>
+        <p class="inst-description">
+          Uma extensão do consultório para o mundo acadêmico. No Instituto, transformamos anos de pesquisa e prática clínica em formações de alto nível para psicólogos e estudantes que buscam excelência técnica e segurança profissional.
         </p>
-        <a href="instituto.html" class="abtn">
-          <span>Acessar o Instituto</span>
-          <span class="abtn-arr">→</span>
-        </a>
+        <div class="inst-actions">
+          <a href="instituto.html" class="abtn-large">
+            <span>Conhecer os Cursos e Formações</span>
+            <span class="abtn-arr">→</span>
+          </a>
+        </div>
       </div>
       
-      <div class="inst-image-container rr">
-        <a href="instituto.html" class="inst-link-img">
-          <div class="inst-img-frame">
-            <img src="imagem-divugando-instituo.jpeg" alt="Instituto Dra. Mirela Borba">
-            <div class="inst-img-bar"></div>
-          </div>
-          <div class="inst-badge">
-            <span class="ib-lbl">Ensino & Pesquisa</span>
+      <div class="inst-visual rr">
+        <a href="instituto.html" class="inst-img-anchor">
+          <div class="inst-frame-new">
+            <!-- A imagem aqui não tem proporção fixa, ela vai aparecer INTEIRA -->
+            <img src="imagem-divugando-instituo.jpeg" alt="Divulgação Instituto">
+            <div class="inst-border-effect"></div>
           </div>
         </a>
       </div>
+
     </div>
   </div>
 </section>
